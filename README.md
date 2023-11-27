@@ -9,7 +9,7 @@ This project is a simple React application that includes a TradingView dashboard
 - Responsive design for various screen sizes.
 
 
-## Live Demo [here](https://quiet-taffy-52117e.netlify.app)
+# Live Demo [here](https://quiet-taffy-52117e.netlify.app)
 ## Getting Started
 
 These instructions will help you set up and run the project on your local machine.
