@@ -25,9 +25,10 @@ export default function MainDiv({Nifty, sym, name, sector, interval}) {
     const apikey = process.env.REACT_APP_API_KEY
 
     const fetchData = async ()=>{
-      const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${sym}&token=${apikey}`);
+      try {
+        const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${sym}&token=${apikey}`);
       const data = await response.json();
-      console.log(data)
+        localStorage.setItem("quoteData", data)
       setValue({
         open : data.o,
         close : data.pc,
@@ -37,10 +38,26 @@ export default function MainDiv({Nifty, sym, name, sector, interval}) {
         perChg : data.dp,
         price : data.c,
       })
+      } catch (error) {
+        if (error ==="API limit reached. Please try again later. Remaining Limit: 0") {
+          const data = JSON.parse(localStorage.getItem("quoteData"));
+          console.log(data)
+          setValue({
+            open : data.o,
+            close : data.pc,
+            high : data.h,
+            low : data.l,
+            chg : data.d,
+            perChg : data.dp,
+            price : data.c,
+          })
+        }
+      }
+      
     }
     fetchData()
   },[sym])
-
+  
   return (
     <Box>
       <Grid container spacing={2}>
