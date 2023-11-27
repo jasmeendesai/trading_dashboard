@@ -38,7 +38,9 @@ function CandleStick({ sym, interval }) {
         const response = await fetch(
           `https://finnhub.io/api/v1/stock/candle?symbol=${sym}&resolution=${interval}&from=1693493346&to=1693752546&token=${apikey}`
         );
-
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = await response.json();
         // let formattedData = [];
         console.log(data);
@@ -70,7 +72,7 @@ function CandleStick({ sym, interval }) {
         setChartData(newChartData);
 
       } catch (error) {
-        if (error === "API limit reached. Please try again later. Remaining Limit: 0") {
+        if (error.message === "API limit reached. Please try again later. Remaining Limit: 0") {
           const data = JSON.parse(localStorage.getItem("chartData"));
           const { c, h, l, o, t } = data;
           const formattedData = t.map((timestamp, index) => ({

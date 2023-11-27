@@ -27,8 +27,11 @@ export default function MainDiv({Nifty, sym, name, sector, interval}) {
     const fetchData = async ()=>{
       try {
         const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${sym}&token=${apikey}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
       const data = await response.json();
-        localStorage.setItem("quoteData", data)
+      localStorage.setItem("quoteData", data)
       setValue({
         open : data.o,
         close : data.pc,
@@ -39,7 +42,7 @@ export default function MainDiv({Nifty, sym, name, sector, interval}) {
         price : data.c,
       })
       } catch (error) {
-        if (error ==="API limit reached. Please try again later. Remaining Limit: 0") {
+        if(error.message==="API limit reached. Please try again later. Remaining Limit: 0") {
           const data = JSON.parse(localStorage.getItem("quoteData"));
           console.log(data)
           setValue({
@@ -56,7 +59,7 @@ export default function MainDiv({Nifty, sym, name, sector, interval}) {
       
     }
     fetchData()
-  },[sym])
+  },[sym, interval])
   
   return (
     <Box>
