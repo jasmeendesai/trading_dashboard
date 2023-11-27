@@ -8,6 +8,8 @@ This project is a simple React application that includes a TradingView dashboard
 - Real-time analytics for a selected stock.
 - Responsive design for various screen sizes.
 
+
+## Live Demo [here](https://quiet-taffy-52117e.netlify.app)
 ## Getting Started
 
 These instructions will help you set up and run the project on your local machine.
