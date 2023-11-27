@@ -1,0 +1,114 @@
+.paddingall{
+    padding: 10px;
+}
+
+.pricetitle{
+    font-weight: 600;
+}
+
+.pricesubtitle{
+    font-size: 14px;
+}
+
+.analyticstitle{
+    font-weight: 600;
+    color: #fff;
+}
+
+.analyticssubtitle{
+    font-size: 14px;
+    color: #ccd1d1;
+}
+
+.iconstyle{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    color: aliceblue;
+}
+
+.iconstyleblack{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.gradient{
+    background: radial-gradient(ellipse at 10% 23%, rgba(1, 1, 54, 0.9) 0%, rgba(2, 2, 80, 0.93) 35%, rgba(2, 2, 113, 0.9) 58%, rgba(3, 3, 117, 0.92) 75%, rgba(48, 73, 187, 0.66) 100%);
+
+}
+
+.gradient a{
+  color: #ccd1d1;
+  text-decoration: none;
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+.gradientlight{
+    background: radial-gradient(ellipse at 0% 10%, rgba(69, 201, 74, 1) 0%, rgba(30, 145, 78, 0.93) 26%, rgba(2, 78, 23, 0.85) 76%, rgba(12, 181, 50, 0.83) 100%);
+}
+
+.bgcolor {
+    min-height: 100vh;
+    background: #ECEFF1;
+    background: linear-gradient(158deg, rgb(224, 224, 224) 0%, rrgb(233, 237, 254) 100%);
+}
+
+
+@media (max-width: 768px) {
+  /* Apply styles for tablets (adjust the max-width based on your design needs) */
+
+  /* Make the left card take the full width */
+  #card1, #card2 {
+    min-width: 49vw;
+  }
+
+  .analyticstitle{
+    font-size: 15px;
+  }
+  .analyticssubtitle{
+    font-size: 12px;
+  }
+
+  /* Hide the right cards */
+  #card3, #card4 {
+    display: none;
+  }
+
+  #card5 {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* Adjust any other styles as needed for tablet layout */
+}
+
+@media (max-width: 480px) {
+  /* Apply styles for tablets (adjust the max-width based on your design needs) */
+
+  /* Make the left card take the full width */
+  #card1, #card2 {
+    display: none;
+
+  }
+  /* Hide the right cards */
+  #card3, #card4 {
+    display: none;
+  }
+  
+  #card5 {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 5px;
+  }
+/* 
+  #content{
+    width: 375px;
+    height: 667px;
+  } */
+  /* Adjust any other styles as needed for tablet layout */
+}
+  
